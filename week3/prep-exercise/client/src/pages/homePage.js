@@ -28,6 +28,10 @@ function createHomePage(state) {
         throw new Error(`Logout failed. Reason: HTTP ${response.status}`);
       }
 
+      
+        const data = await response.json();
+        alert(data.message);
+
       loadPage(createLoginPage, state);
     } catch (error) {
       state = { ...state, error: error.message };
